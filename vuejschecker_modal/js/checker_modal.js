@@ -10,6 +10,9 @@ Vue.component('modal-component', {
               <li v-for="errormodal in errorsmodal">{{ errormodal }}</li>
               </ul>
             </p>
+            <p v-if="errorsmodal.length==0">
+              <b>All Ok !</b>
+            </p>
             <button class="modal-default-button" v-on:click="$emit('click')">
               Close
             </button>
