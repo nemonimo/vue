@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vuejs-checker(ver.modal)</title>
+  <link rel="stylesheet" href="css/checker_modal.css">
+</head>
+
+<body>
+  <form id="app" v-on:submit="checkForm" v-cloak>
+    <p>
+      <label for="name">Name</label>
+      <input id="name" v-model="name" type="text">
+    </p>
+
+    <p>
+      <label for="age">Age</label>
+      <input id="age" v-model="age" name="age">years old
+    </p>
+
+    <p>
+      <label for="sex">Sex</label>
+      <input type="radio" id="sex" value="male" v-model="sex">
+      <label for="male">Male</label>
+      <input type="radio" id="sex" value="female" v-model="sex">
+      <label for="female">Female</label>
+    </p>
+
+    <p>
+      <button type="submit" v-on:click="showModal = true">check !</button>
+      <modal-component v-bind:errorsmodal="errors" v-if="showModal"
+      v-on:click="showModal = false"></modal-component>
+    </p>
+
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="js/checker_modal.js"></script>
+</body>
+
+</html>
