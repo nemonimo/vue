@@ -1,9 +1,18 @@
 <template>
 <div>
-  <errorCheckHeader /><hr>
-  <errorCheckBody /><hr>
+  <errorCheckHeader v-on:hello-Customer="applyNickname" />
+  <hr>
+  <errorCheckBody v-bind:inputNickname="inputNickname" />
+  <hr>
   <errorCheckFooter />
   <hr>
+
+
+
+
+
+
+
   <bheader v-bind:hmsg="msg" v-on:apply-from-child="apply"></bheader>
   <sample v-bind:smsg="msg"></sample>
   <p v-if="msg.length > 0">
@@ -42,6 +51,7 @@ export default {
       smsg: '',
       hmsg: '',
       messageFromChild: 'message from child',
+      inputNickname:'Customer'
     }
   },
   methods: {
@@ -50,6 +60,9 @@ export default {
     },
     apply(value) {
       this.messageFromChild = value
+    },
+    applyNickname(value){
+      this.inputNickname = value
     }
   }
 }
