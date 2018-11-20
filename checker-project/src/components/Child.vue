@@ -22,12 +22,19 @@
     <input v-model="favoriteFood" type="text">
   </p>
 
-  <button>Next</button>
+  <button @click="showModal = true">Check</button>
+  <router-view name="modal" v-if="showModal" v-on:click="showModal = false" />
+
 </div>
 </template>
 
 <script>
-export default{
+export default {
+  data () {
+    return {
+      showModal: false
+    }
+  },
   props: [
     'inputNickname'
   ]

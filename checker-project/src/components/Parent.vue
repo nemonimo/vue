@@ -4,7 +4,6 @@
     Hello nemonimoWorld !<br>
     Input your nickname !<br>
 
-
   <div v-if="!showText">
     <input type="text" v-model="inputNickname">
   </div>
@@ -17,6 +16,10 @@
   <h2 v-show="showText">
     <router-view name="child" v-bind:inputNickname="inputNickname" />
   </h2>
+
+  <button @click="showModal = true">Check</button>
+  <router-view name="modal" v-if="showModal" v-on:click="showModal = false" />
+
 </div>
 </template>
 
@@ -25,7 +28,8 @@ export default {
   data () {
     return {
       inputNickname: '',
-      showText: false
+      showText: false,
+      showModal: false
     }
   },
   methods: {
