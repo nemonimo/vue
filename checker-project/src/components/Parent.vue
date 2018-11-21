@@ -1,7 +1,7 @@
 <template>
 <div class="hello">
   <h1>
-    Hello nemonimoWorld !<br>
+    Welcome nemonimoWorld !<br>
     Input your nickname !<br>
 
   <div v-if="!showText">
@@ -11,6 +11,8 @@
     <input type="text" v-model="inputNickname" disabled>
   </div>
     <button v-show="!showText" v-on:click="toggle">Decision !</button>
+    <button v-on:click="checkForm">Check</button>
+    {{errors}}
   </h1>
   <hr>
   <h2 v-show="showText">
@@ -30,7 +32,8 @@ export default {
     return {
       inputNickname: '',
       showText: false,
-      showModal: false
+      showModal: false,
+      errors: []
     }
   },
   methods: {
@@ -39,6 +42,14 @@ export default {
     },
     modalPopUpEvent: function () {
       this.showModal = !this.showModal
+    },
+    checkForm: function () {
+      this.errors = []
+      if (this.inputNickname == null) {
+        this.errors.push('Name field is blank.')
+      } else if (!isNaN(this.inputNickname)) {
+        this.errors.push('Do not put a number in the name field.')
+      }
     }
   }
 }
