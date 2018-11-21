@@ -14,11 +14,12 @@
   </h1>
   <hr>
   <h2 v-show="showText">
-    <router-view name="child" v-bind:inputNickname="inputNickname" />
+    <router-view name="child" v-bind:inputNickname="inputNickname" v-on:modalPopUpEvent="modalPopUpEvent" />
   </h2>
 
-  <button @click="showModal = true">Check</button>
-  <router-view name="modal" v-if="showModal" v-on:click="showModal = false" />
+<div v-if="showModal">
+<router-view name="modal" v-on:modalPopUpEvent="modalPopUpEvent"/>
+</div>
 
 </div>
 </template>
@@ -35,6 +36,9 @@ export default {
   methods: {
     toggle: function () {
       this.showText = !this.showText
+    },
+    modalPopUpEvent: function () {
+      this.showModal = !this.showModal
     }
   }
 }

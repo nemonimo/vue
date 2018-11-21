@@ -22,8 +22,7 @@
     <input v-model="favoriteFood" type="text">
   </p>
 
-  <button @click="showModal = true">Check</button>
-  <router-view name="modal" v-if="showModal" v-on:click="showModal = false" />
+  <button @click="modalPopUp">Check</button>
 
 </div>
 </template>
@@ -32,11 +31,18 @@
 export default {
   data () {
     return {
-      showModal: false
+      age: '',
+      sex: '',
+      favoriteFood: ''
     }
   },
   props: [
     'inputNickname'
-  ]
+  ],
+  methods: {
+    modalPopUp: function () {
+      this.$emit('modalPopUpEvent')
+    }
+  }
 }
 </script>

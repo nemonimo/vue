@@ -3,7 +3,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <button class="modal-default-button" v-on:click="$emit('click')">
+          <button class="modal-default-button" @click="modalPopUp">
             Close
           </button>
         </div>
@@ -11,6 +11,16 @@
     </div>
   </transition>
 </template>
+
+<script>
+export default{
+  methods: {
+    modalPopUp: function () {
+      this.$emit('modalPopUpEvent')
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 [v-cloak]{
