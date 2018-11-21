@@ -30,7 +30,7 @@
 export default {
   data () {
     return {
-      inputNickname: '',
+      inputNickname: null,
       showText: false,
       showModal: false,
       errors: []
