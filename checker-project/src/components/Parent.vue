@@ -30,7 +30,7 @@
 export default {
   data () {
     return {
-      inputNickname: null,
+      inputNickname: '',
       showText: false,
       showModal: false,
       errors: []
@@ -45,7 +45,7 @@ export default {
     },
     checkForm: function () {
       this.errors = []
-      if (this.inputNickname == null) {
+      if (this.inputNickname == '') {
         this.errors.push('Name field is blank.')
       } else if (!isNaN(this.inputNickname)) {
         this.errors.push('Do not put a number in the name field.')
