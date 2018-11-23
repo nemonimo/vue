@@ -3,17 +3,18 @@
   <h1>
     Welcome nemonimoWorld !<br>
     Input your nickname !<br>
-
+  </h1>
   <div v-if="!showText">
     <input type="text" v-model="inputNickname">
+  <li v-if="errors.length">
+    {{errors}}
+  </li>
   </div>
   <div v-else>
     <input type="text" v-model="inputNickname" disabled>
   </div>
     <button v-show="!showText" v-on:click="toggle">Decision !</button>
     <button v-on:click="checkForm">Check</button>
-    {{errors}}
-  </h1>
   <hr>
   <h2 v-show="showText">
     <router-view name="child" v-bind:inputNickname="inputNickname" v-on:modalPopUpEvent="modalPopUpEvent" />
